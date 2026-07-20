@@ -18,6 +18,11 @@ pkg upgrade -y
 echo
 echo "Installing required packages..."
 
+if [ ! -s packages.txt ]; then
+    echo "ERROR: packages.txt is missing or empty."
+    exit 1
+fi
+
 mapfile -t packages < <(
     grep -v '^#' packages.txt | sed '/^$/d'
 )
