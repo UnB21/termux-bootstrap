@@ -1,0 +1,38 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+VERSION=$(cat "$PROJECT_DIR/VERSION")
+
+show_help() {
+    echo "Termux Bootstrap"
+    echo
+    echo "Version: $VERSION"
+    echo
+    echo "Usage:"
+    echo
+    echo "  tboot install"
+    echo "  tboot doctor"
+    echo "  tboot version"
+}
+
+case "$1" in
+
+    install)
+        "$PROJECT_DIR/install.sh"
+        ;;
+
+    doctor)
+        "$PROJECT_DIR/scripts/doctor.sh"
+        ;;
+
+    version)
+        echo "Termux Bootstrap"
+        echo "Version: $VERSION"
+        ;;
+
+    *)
+        show_help
+        ;;
+
+esac
