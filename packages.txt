@@ -5,10 +5,8 @@ curl
 wget
 openssh
 python
-proot-distro
 tar
 unzip
 termux-services
 android-tools
 proot-distro
-root-repo
