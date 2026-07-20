@@ -66,3 +66,7 @@ Current Version
 
 Status
 This project is currently under active development.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
