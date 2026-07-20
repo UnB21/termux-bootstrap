@@ -19,10 +19,12 @@ echo
 echo "Installing required packages..."
 
 while read -r package; do
+
     [[ -z "$package" || "$package" =~ ^# ]] && continue
 
     echo "Installing: $package"
     pkg install -y "$package"
+
 done < packages.txt
 
 echo
