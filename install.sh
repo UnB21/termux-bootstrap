@@ -16,7 +16,6 @@ pkg update -y
 pkg upgrade -y
 
 echo
-echo
 echo "Installing required packages..."
 
 mapfile -t packages < <(
