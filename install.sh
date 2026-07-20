@@ -16,16 +16,19 @@ pkg update -y
 pkg upgrade -y
 
 echo
+echo
 echo "Installing required packages..."
 
-while read -r package; do
+mapfile -t packages < <(
+    grep -v '^#' packages.txt | sed '/^$/d'
+)
 
-    [[ -z "$package" || "$package" =~ ^# ]] && continue
+echo "Packages to install:"
+printf '  %s\n' "${packages[@]}"
 
-    echo "Installing: $package"
-    pkg install -y "$package"
+echo
 
-done < packages.txt
+pkg install -y "${packages[@]}"
 
 echo
 echo "Termux bootstrap base installation complete."
